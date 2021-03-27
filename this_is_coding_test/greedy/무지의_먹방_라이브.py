@@ -45,7 +45,7 @@ def solution(food_times, k):
     for i in range(0, len(food_times)):
         food_times_list.append([i, food_times[i]])
 
-    # 전체 먹는 시간보다 k가 크면 계산 불가능 이므로 -1
+    # 전체 먹는 시간보다 k가 크면 계산 불가능이므로 -1
     if totalTime  <= k:
         return -1
 
@@ -53,12 +53,12 @@ def solution(food_times, k):
     food_times_list.sort(key = lambda x:x[1])
 
     # 제일 적은 음식을 길이에 곱한 시간 계산
-    delTime = food_times_list[0][1]*len(food_times_list)
+    delTime = food_times_list[0][1] * len(food_times_list)
 
     # i 사라진 음식의 개수
     i = 1
 
-    # k 가 음식을 사라지게 하는 수보다 클 경우 아래 의 반복문 실행
+    # k 가 음식을 사라지게 하는 수보다 클 경우 아래의 반복문 실행
     while delTime < k:
         k -= delTime
         delTime = (food_times_list[i][1] - food_times_list[i - 1][1]) * (len(food_times_list) - i)
@@ -72,30 +72,30 @@ def solution(food_times, k):
 
 #---------------------------------------------------------------
 # 동빈나 참고한 풀이 (...ing)
-from collections import deque
-
-def sol(food_times, k):
-    if sum(food_times) <= k:
-        return -1
-
-    q = []
-    for i in range(len(food_times)):
-        q.append([food_times[i], i + 1])
-
-    qu = deque(sorted(q, key = lambda x : x[0]))
-    sum_value = 0
-    previous = 0
-    length = len(food_times)
-    print(qu)
-
-    while sum_value + ((qu[0][0] - previous) * length) <= k:
-        now = qu.popleft()
-        sum_value += now[0]
-        length -= 1
-        previous = now
-
-    result = sorted(q, key = lambda x : x[1])
-    return result[(k - sum_value) % length][1]
-
-k = sol([3, 1, 2], 5)
-print(k)
+# from collections import deque
+#
+# def sol(food_times, k):
+#     if sum(food_times) <= k:
+#         return -1
+#
+#     q = []
+#     for i in range(len(food_times)):
+#         q.append([food_times[i], i + 1])
+#
+#     qu = deque(sorted(q, key = lambda x : x[0]))
+#     sum_value = 0
+#     previous = 0
+#     length = len(food_times)
+#     print(qu)
+#
+#     while sum_value + ((qu[0][0] - previous) * length) <= k:
+#         now = qu.popleft()
+#         sum_value += now[0]
+#         length -= 1
+#         previous = now
+#
+#     result = sorted(q, key = lambda x : x[1])
+#     return result[(k - sum_value) % length][1]
+#
+# k = sol([3, 1, 2], 5)
+# print(k)
