@@ -54,3 +54,6 @@ def solution(statements):
 
 s = solution([1, 1])
 print(s)
+
+[0, 1] -> 1
+
