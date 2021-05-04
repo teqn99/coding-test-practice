@@ -55,7 +55,7 @@ def solution(w):
         answer += ')'
 
         # 과정 4-4
-        for p in u[1 : len(u)-1]:
+        for p in u[1: len(u)-1]:
             if p == '(':
                 answer += ')'
             else:

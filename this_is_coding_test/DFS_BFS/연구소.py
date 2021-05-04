@@ -6,18 +6,17 @@
 5. 모든 경우를 반복한 후, max(result_list)를 리턴
 """
 
-import sys
 import copy
 from collections import deque
 
 N, M = map(int, input().split())
-map_list = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+map_list = [list(map(int, input().split())) for _ in range(N)]
 result_list = []
 
 
-def spread_virus(map, n, m):  # 0인 지역에 바이러스를 퍼뜨리는 방법
+def spread(mapp, n, m):  # 0인 지역에 바이러스를 퍼뜨리는 방법
     q = deque()
-    copy_list = copy.deepcopy(map)
+    copy_list = copy.deepcopy(mapp)
 
     dx = [-1, 1, 0, 0]  # 상, 하, 좌, 우
     dy = [0, 0, -1, 1]
@@ -44,18 +43,18 @@ def spread_virus(map, n, m):  # 0인 지역에 바이러스를 퍼뜨리는 방�
     return cnt
 
 
-def wall(x, map, res, n, m):  # 추가로 설치할 수 있는 벽은 총 3개
+def wall(x, mapp, res, n, m):  # 추가로 설치할 수 있는 벽은 총 3개
     if x == 3:
-        result = spread_virus(map, n, m)
+        result = spread(mapp, n, m)
         res.append(result)
         return
 
     for i in range(n):
         for j in range(m):
-            if map[i][j] == 0:
-                map[i][j] = 1
-                wall(x+1, map, res, n, m)
-                map[i][j] = 0
+            if mapp[i][j] == 0:
+                mapp[i][j] = 1
+                wall(x+1, mapp, res, n, m)
+                mapp[i][j] = 0
 
 
 wall(0, map_list, result_list, N, M)
