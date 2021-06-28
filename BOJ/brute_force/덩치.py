@@ -4,8 +4,6 @@ for i in range(n):
     sizes = list(map(int, input().split()))
     size_list.append(sizes)
 
-print(size_list)
-
 for i in size_list:
     rank = 1
     for j in size_list:
