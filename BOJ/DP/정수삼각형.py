@@ -4,7 +4,7 @@ for i in range(N):
     tri_list.append(list(map(int, input().split())))
 
 k = 2
-for i in range(N):
+for i in range(1, N):
     for j in range(k):
         if j == 0:
             tri_list[i][j] =  tri_list[i][j] + tri_list[i - 1][j]
