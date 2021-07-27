@@ -18,5 +18,5 @@ for i in range(1, len(garo)):
         height = sero[j] - sero[j-1]
         result_list.append(width * height)
 
-print(result_list)
+# print(result_list)
 print(max(result_list))
