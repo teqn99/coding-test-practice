@@ -1,4 +1,4 @@
-for tc in range(1):
+for tc in range(10):
     N = int(input())
     target = str(input())
     words = str(input())
