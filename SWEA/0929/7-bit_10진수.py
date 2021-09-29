@@ -17,3 +17,21 @@ for tc in range(T):
     for i in range(len(result_list)):
         print(result_list[i], end=' ')
     print()
+
+
+# 다른 풀이
+for tc in range(1, int(input()) + 1):
+    num = input()
+    answer = []
+
+    for i in range(0, len(num), 7):
+
+        decimal = 0
+        binary = list(map(int, num[i:i + 7]))
+
+        for j in range(7):
+            decimal += binary.pop() * (2 ** j)
+
+        answer.append(str(decimal))
+
+    print(f'#{tc}', *answer)
