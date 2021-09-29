@@ -35,3 +35,18 @@ for tc in range(1, int(input()) + 1):
         answer.append(str(decimal))
 
     print(f'#{tc}', *answer)
+
+
+# 다른 풀이
+T = int(input())
+for t in range(1,T+1):
+    lista=list(map(int,input()))
+    ans=[]
+    dec=0
+    for i in range(70):
+        j=6-i%7
+        dec += lista[i]*(1<<j)
+        if j==0:
+            ans.append(dec)
+            dec=0
+    print(f'#{t}',*ans)
