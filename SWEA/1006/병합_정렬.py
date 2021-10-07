@@ -16,7 +16,6 @@ def merge_sort(arr):
             merged_arr.append(left_arr[l])
             l += 1
         else:
-        else:
             merged_arr.append(right_arr[r])
             r += 1
     merged_arr += left_arr[l:]  # while 조건 때문에 전부 가져오지 못한 경우가 있을 수 있다. (이미 정렬되어있는 상태이기 때문에 바로 더해줌.)
