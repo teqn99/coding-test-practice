@@ -14,7 +14,7 @@
 """
 def prim1(r, V):
     MST = [0]*(V+1)                     # MST 포함 여부
-    MST[r] = 1
+    # MST[r] = 1
     key = [10000]*(V+1)                 # 가중치의 최대값 이상으로 초기화. key[v]는 v가 MST에 속한 정점과 연결될 때까지의 가중치
     key[r] = 0                          # 시작 정점의 key
     for _ in range(V):                  # V+1개의 정점 중 V개를 선택
